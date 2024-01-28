@@ -1,9 +1,8 @@
-'use client';
-import { FaUser } from 'react-icons/fa';
+import { FaUser } from "react-icons/fa";
 
-import './User.css';
-import Dropdown from './Dropdown/Dropdown';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
+import Dropdown from "./Dropdown/Dropdown";
+import "./User.css";
 
 function UserLoggedIn() {
   const [userDropdown, setUserDropdown] = useState(false);
@@ -45,10 +44,10 @@ function UserLoggedIn() {
 
   useEffect(() => {
     // console.log('yoo')
-    document.addEventListener('click', handleOutsideClick, { capture: true });
+    document.addEventListener("click", handleOutsideClick, { capture: true });
 
     return () => {
-      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
 

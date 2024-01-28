@@ -1,10 +1,9 @@
-'use client';
-import { IoSettingsOutline } from 'react-icons/io5';
-import { BsBagCheck } from 'react-icons/bs';
-import { AiOutlineHeart } from 'react-icons/ai';
-import { GrHelp } from 'react-icons/gr';
-import { BiLogOut } from 'react-icons/bi';
-import './Dropdown.css';
+import { AiOutlineHeart } from "react-icons/ai";
+import { BiLogOut } from "react-icons/bi";
+import { BsBagCheck } from "react-icons/bs";
+import { GrHelp } from "react-icons/gr";
+import { IoSettingsOutline } from "react-icons/io5";
+import "./Dropdown.css";
 
 function Dropdown() {
   return (

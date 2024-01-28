@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  corePlugins: {
+    container: false,
+  },
+
   theme: {
     screens: {
       sm: "576px",
@@ -9,10 +13,14 @@ export default {
       xl: "1200px",
       xxl: "1400px",
     },
-    container: {
-      center: true,
-      padding: "1rem",
-    },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        ".container": {
+          maxWidth: "100%",
+        },
+      });
+    },
+  ],
 };
