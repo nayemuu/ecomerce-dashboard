@@ -14,6 +14,7 @@ export default {
       xxl: "1400px",
     },
   },
+
   plugins: [
     function ({ addComponents }) {
       addComponents({
