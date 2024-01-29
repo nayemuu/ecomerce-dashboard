@@ -6,66 +6,75 @@ function ProductsDropDown() {
   const location = useLocation();
   const { pathname } = location;
   // console.log('pathname = ', pathname);
-  // let res = pathname.includes('/category');
+  // let res = pathname === '/category';
   // console.log('res = ', res);
 
   return (
     <div>
-      <div
-        className={`block text-left border-t py-3 border-red-200 text-base px-2 cursor-pointer hover:text-[#2792d0] ${
-          pathname.includes('/productlist') && 'text-green-600'
-        }`}
-      >
-        <Navigate href="/products/productlist">
+      <Navigate href="/productList">
+        <div
+          className={`block text-left border-t py-3 border-red-200 text-base px-2 cursor-pointer hover:text-[#2792d0] ${
+            pathname === '/productList' && 'text-green-600 font-medium'
+          }`}
+        >
           <div className="flex items-center gap-x-2">
-            {pathname.includes('/productlist') ? (
-              <IoEllipse />
-            ) : (
-              <IoEllipseOutline />
-            )}
+            {pathname === '/productList' ? <IoEllipse /> : <IoEllipseOutline />}
             Product List
           </div>
-        </Navigate>
-      </div>
-
-      <div
-        className={`block text-left border-t py-3 border-red-200 text-base px-2 cursor-pointer hover:text-[#2792d0] ${
-          pathname.includes('/add-product') && 'text-green-600'
-        }`}
-      >
-        <div className="flex items-center gap-x-2">
-          {pathname.includes('/add-product') ? (
-            <IoEllipse />
-          ) : (
-            <IoEllipseOutline />
-          )}
-          Add Product
         </div>
-      </div>
+      </Navigate>
 
-      <div className="block text-left border-t py-3 border-red-200 text-base hover:text-[#2792d0] px-2 cursor-pointer">
-        <Navigate href="/category">
+      <Navigate href="/addProduct">
+        <div
+          className={`block text-left border-t py-3 border-red-200 text-base px-2 cursor-pointer hover:text-[#2792d0] ${
+            pathname === '/addProduct' && 'text-green-600 font-medium'
+          }`}
+        >
           <div className="flex items-center gap-x-2">
-            {pathname.includes('/category') ? (
-              <IoEllipse />
-            ) : (
-              <IoEllipseOutline />
-            )}
+            {pathname === '/addProduct' ? <IoEllipse /> : <IoEllipseOutline />}
+            Add Product
+          </div>
+        </div>
+      </Navigate>
+
+      <Navigate href="/category">
+        <div
+          className={`block text-left border-t py-3 border-red-200 text-base px-2 cursor-pointer hover:text-[#2792d0] ${
+            pathname === '/category' && 'text-green-600 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-x-2">
+            {pathname === '/category' ? <IoEllipse /> : <IoEllipseOutline />}
             Category
           </div>
-        </Navigate>
-      </div>
-
-      <div className="block text-left border-t py-3 border-red-200 text-base hover:text-[#2792d0] px-2 cursor-pointer">
-        <div className="flex items-center gap-x-2">
-          {pathname.includes('/sub-catrgory') ? (
-            <IoEllipse />
-          ) : (
-            <IoEllipseOutline />
-          )}
-          Sub Category
         </div>
-      </div>
+      </Navigate>
+
+      <Navigate href="/subCategory">
+        <div
+          className={`block text-left border-t py-3 border-red-200 text-base px-2 cursor-pointer hover:text-[#2792d0] ${
+            pathname === '/subCategory' && 'text-green-600 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-x-2">
+            {pathname === '/subCategory' ? <IoEllipse /> : <IoEllipseOutline />}
+            Sub Category
+          </div>
+        </div>
+      </Navigate>
+
+      <Navigate href="/location">
+        <div
+          className={`block text-left border-t py-3 border-red-200 text-base px-2 cursor-pointer hover:text-[#2792d0] ${
+            pathname === '/location' && 'text-green-600 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-x-2">
+            {pathname === '/location' ? <IoEllipse /> : <IoEllipseOutline />}
+            Location
+          </div>
+        </div>
+      </Navigate>
     </div>
   );
 }
