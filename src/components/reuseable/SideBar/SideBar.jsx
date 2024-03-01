@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { BsBoxSeamFill } from 'react-icons/bs';
 import { FaUsers } from 'react-icons/fa';
 import { GrUserSettings } from 'react-icons/gr';
-import { IoIosArrowDown } from 'react-icons/io';
 import { MdOutlinePayment } from 'react-icons/md';
 import { RiShoppingCart2Fill } from 'react-icons/ri';
 import { RxDashboard } from 'react-icons/rx';
@@ -86,37 +85,6 @@ function SideBar() {
         </div>
 
         <div>
-          {/* <div
-            className={`flex items-center justify-between gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
-              activeIndex === 3 && 'bg-[#1B2850] text-white'
-            }`}
-            onClick={() => handleActiveIndex(3)}
-          >
-            <div className="flex items-center gap-4">
-              <BsBoxSeamFill />
-              Products
-            </div>
-
-            <div
-              className={`duration-200 ease-linear ${
-                activeIndex === 3 ? 'rotate-180' : 'rotate-0'
-              }`}
-            >
-              <IoIosArrowDown />
-            </div>
-          </div> */}
-
-          {/* <div
-            className="overflow-y-hidden transition-all duration-200 ease-linear"
-            style={{
-              height: activeIndex === 3 ? ref.current?.offsetHeight || 0 : 0,
-            }}
-          >
-            <div className="px-4" ref={ref}>
-              <ProductsDropDown />
-            </div>
-          </div> */}
-
           <SideBarAccordianHeader
             activeIndex={activeIndex}
             index={3}
@@ -166,25 +134,14 @@ function SideBar() {
         </Navigate>
 
         <div>
-          <div
-            className={`flex items-center justify-between gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
-              activeIndex === 7 && 'bg-[#1B2850] text-white'
-            }`}
-            onClick={() => handleActiveIndex(7)}
+          <SideBarAccordianHeader
+            activeIndex={activeIndex}
+            index={7}
+            handleClick={() => handleActiveIndex(7)}
           >
-            <div className="flex items-center gap-4">
-              <GrUserSettings />
-              User
-            </div>
-
-            <div
-              className={`duration-200 ease-linear ${
-                activeIndex === 7 ? 'rotate-180' : 'rotate-0'
-              }`}
-            >
-              <IoIosArrowDown />
-            </div>
-          </div>
+            <GrUserSettings />
+            User
+          </SideBarAccordianHeader>
 
           <SideBarAccordianBody activeIndex={activeIndex} index={7}>
             <UserDropDown />

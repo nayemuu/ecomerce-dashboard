@@ -12,7 +12,7 @@ function SideBarAccordianHeader({ activeIndex, index, children, handleClick }) {
 
       <div
         className={`duration-200 ease-linear ${
-          activeIndex === 3 ? 'rotate-180' : 'rotate-0'
+          activeIndex === index ? 'rotate-180' : 'rotate-0'
         }`}
       >
         <IoIosArrowDown />
