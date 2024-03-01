@@ -1,18 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
-import { BsBoxSeamFill } from 'react-icons/bs';
-import { FaUsers } from 'react-icons/fa';
+import { BsBoxSeamFill, BsPersonFillAdd } from 'react-icons/bs';
+import { FaAddressBook, FaUsers } from 'react-icons/fa';
 import { GrUserSettings } from 'react-icons/gr';
 import { MdOutlinePayment } from 'react-icons/md';
 import { RiShoppingCart2Fill } from 'react-icons/ri';
 import { RxDashboard } from 'react-icons/rx';
 import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import Navigate from '../../../helper/Navigate';
+import { Link, useLocation } from 'react-router-dom';
 import { isSectionActiveViaRoute } from '../../../utils/for-Sidebar/Sidebar';
-import ProductsDropDown from './DropDown/ProductsDropDown/ProductsDropDown';
-import UserDropDown from './DropDown/UserDropDown/UserDropDown';
 import './SideBar.css';
 import SideBarAccordianBody from './SideBarAccordianItem/SideBarAccordianBody/SideBarAccordianBody';
+import SideBarAccordianBodyItem from './SideBarAccordianItem/SideBarAccordianBody/SideBarAccordianBodyItem/SideBarAccordianBodyItem';
 import SideBarAccordianHeader from './SideBarAccordianItem/SideBarAccordianHeader/SideBarAccordianHeader';
 
 function SideBar() {
@@ -62,7 +60,7 @@ function SideBar() {
       } sidebar-container transition-all duration-200 ease-linear`}
     >
       <div className="mt-5 flex flex-col gap-[1px]">
-        <Navigate href="/">
+        <Link to="/">
           <div
             className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
               activeIndex === 1 && 'bg-[#1B2850] text-white'
@@ -72,7 +70,7 @@ function SideBar() {
             <RxDashboard />
             Dashboard
           </div>
-        </Navigate>
+        </Link>
 
         <div
           className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
@@ -95,7 +93,25 @@ function SideBar() {
           </SideBarAccordianHeader>
 
           <SideBarAccordianBody activeIndex={activeIndex} index={3}>
-            <ProductsDropDown />
+            <SideBarAccordianBodyItem link="/productList" logo={false}>
+              Product List
+            </SideBarAccordianBodyItem>
+
+            <SideBarAccordianBodyItem link="/addProduct" logo={false}>
+              Add Product
+            </SideBarAccordianBodyItem>
+
+            <SideBarAccordianBodyItem link="/category" logo={false}>
+              Category
+            </SideBarAccordianBodyItem>
+
+            <SideBarAccordianBodyItem link="/subCategory" logo={false}>
+              Sub Category
+            </SideBarAccordianBodyItem>
+
+            <SideBarAccordianBodyItem link="/location" logo={false}>
+              Location
+            </SideBarAccordianBodyItem>
           </SideBarAccordianBody>
         </div>
 
@@ -109,7 +125,7 @@ function SideBar() {
           Payment
         </div>
 
-        <Navigate href="/users">
+        <Link to="/users">
           <div
             className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
               activeIndex === 5 && 'bg-[#1B2850] text-white'
@@ -119,9 +135,9 @@ function SideBar() {
             <FaUsers />
             Users
           </div>
-        </Navigate>
+        </Link>
 
-        <Navigate href="/users2">
+        <Link to="/users2">
           <div
             className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
               activeIndex === 6 && 'bg-[#1B2850] text-white'
@@ -131,7 +147,7 @@ function SideBar() {
             <FaUsers />
             Users
           </div>
-        </Navigate>
+        </Link>
 
         <div>
           <SideBarAccordianHeader
@@ -144,7 +160,20 @@ function SideBar() {
           </SideBarAccordianHeader>
 
           <SideBarAccordianBody activeIndex={activeIndex} index={7}>
-            <UserDropDown />
+            <SideBarAccordianBodyItem link="/users" logo={true}>
+              <FaUsers />
+              Users
+            </SideBarAccordianBodyItem>
+
+            <SideBarAccordianBodyItem link="/add-user" logo={true}>
+              <BsPersonFillAdd />
+              Add User
+            </SideBarAccordianBodyItem>
+
+            <SideBarAccordianBodyItem link="/user-biography" logo={true}>
+              <FaAddressBook />
+              Biography
+            </SideBarAccordianBodyItem>
           </SideBarAccordianBody>
         </div>
       </div>
