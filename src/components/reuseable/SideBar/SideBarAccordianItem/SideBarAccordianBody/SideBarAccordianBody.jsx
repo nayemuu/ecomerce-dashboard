@@ -5,7 +5,7 @@ function SideBarAccordianBody({ activeIndex, index, children }) {
 
   return (
     <div
-      className="overflow-y-hidden transition-all duration-200 ease-linear"
+      className={`overflow-y-hidden transition-all duration-200 ease-linear`}
       style={{
         height: activeIndex === index ? ref.current?.offsetHeight || 0 : 0,
       }}

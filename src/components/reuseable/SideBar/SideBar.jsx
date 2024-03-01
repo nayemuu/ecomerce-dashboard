@@ -14,6 +14,7 @@ import ProductsDropDown from './DropDown/ProductsDropDown/ProductsDropDown';
 import UserDropDown from './DropDown/UserDropDown/UserDropDown';
 import './SideBar.css';
 import SideBarAccordianBody from './SideBarAccordianItem/SideBarAccordianBody/SideBarAccordianBody';
+import SideBarAccordianHeader from './SideBarAccordianItem/SideBarAccordianHeader/SideBarAccordianHeader';
 
 function SideBar() {
   const { status: SideBarStatus } = useSelector((state) => state.SideBar);
@@ -85,7 +86,7 @@ function SideBar() {
         </div>
 
         <div>
-          <div
+          {/* <div
             className={`flex items-center justify-between gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
               activeIndex === 3 && 'bg-[#1B2850] text-white'
             }`}
@@ -103,7 +104,7 @@ function SideBar() {
             >
               <IoIosArrowDown />
             </div>
-          </div>
+          </div> */}
 
           {/* <div
             className="overflow-y-hidden transition-all duration-200 ease-linear"
@@ -115,6 +116,15 @@ function SideBar() {
               <ProductsDropDown />
             </div>
           </div> */}
+
+          <SideBarAccordianHeader
+            activeIndex={activeIndex}
+            index={3}
+            handleClick={() => handleActiveIndex(3)}
+          >
+            <BsBoxSeamFill />
+            Products
+          </SideBarAccordianHeader>
 
           <SideBarAccordianBody activeIndex={activeIndex} index={3}>
             <ProductsDropDown />
@@ -175,12 +185,6 @@ function SideBar() {
               <IoIosArrowDown />
             </div>
           </div>
-
-          {/* {activeIndex === 7 && (
-            <div className="px-4 ">
-              <UserDropDown />
-            </div>
-          )} */}
 
           <SideBarAccordianBody activeIndex={activeIndex} index={7}>
             <UserDropDown />
