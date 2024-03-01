@@ -6,7 +6,7 @@ import { MdOutlinePayment } from 'react-icons/md';
 import { RiShoppingCart2Fill } from 'react-icons/ri';
 import { RxDashboard } from 'react-icons/rx';
 import { useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { isSectionActiveViaRoute } from '../../../utils/for-Sidebar/Sidebar';
 import './SideBar.css';
 import SideBarAccordianBody from './SideBarAccordianItem/SideBarAccordianBody/SideBarAccordianBody';
@@ -60,26 +60,30 @@ function SideBar() {
       } sidebar-container transition-all duration-200 ease-linear`}
     >
       <div className="mt-5 flex flex-col gap-[1px]">
-        <Link to="/">
-          <div
-            className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
-              activeIndex === 1 && 'bg-[#1B2850] text-white'
-            }`}
-            onClick={() => handleActiveIndex(1)}
+        <div>
+          <SideBarAccordianHeader
+            activeIndex={activeIndex}
+            index={1}
+            handleClick={() => handleActiveIndex(1)}
+            sidebarBody={false}
+            link="/"
           >
             <RxDashboard />
             Dashboard
-          </div>
-        </Link>
+          </SideBarAccordianHeader>
+        </div>
 
-        <div
-          className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
-            activeIndex === 2 && 'bg-[#1B2850] text-white'
-          }`}
-          onClick={() => handleActiveIndex(2)}
-        >
-          <RiShoppingCart2Fill />
-          Orders
+        <div>
+          <SideBarAccordianHeader
+            activeIndex={activeIndex}
+            index={2}
+            handleClick={() => handleActiveIndex(2)}
+            sidebarBody={false}
+            link="/"
+          >
+            <RiShoppingCart2Fill />
+            Orders
+          </SideBarAccordianHeader>
         </div>
 
         <div>
@@ -115,51 +119,30 @@ function SideBar() {
           </SideBarAccordianBody>
         </div>
 
-        <div
-          className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
-            activeIndex === 4 && 'bg-[#1B2850] text-white'
-          }`}
-          onClick={() => handleActiveIndex(4)}
-        >
-          <MdOutlinePayment />
-          Payment
+        <div>
+          <SideBarAccordianHeader
+            activeIndex={activeIndex}
+            index={4}
+            handleClick={() => handleActiveIndex(4)}
+            sidebarBody={false}
+            link="/"
+          >
+            <MdOutlinePayment />
+            Payment
+          </SideBarAccordianHeader>
         </div>
-
-        <Link to="/users">
-          <div
-            className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
-              activeIndex === 5 && 'bg-[#1B2850] text-white'
-            }`}
-            onClick={() => handleActiveIndex(5)}
-          >
-            <FaUsers />
-            Users
-          </div>
-        </Link>
-
-        <Link to="/users2">
-          <div
-            className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
-              activeIndex === 6 && 'bg-[#1B2850] text-white'
-            }`}
-            onClick={() => handleActiveIndex(6)}
-          >
-            <FaUsers />
-            Users
-          </div>
-        </Link>
 
         <div>
           <SideBarAccordianHeader
             activeIndex={activeIndex}
-            index={7}
-            handleClick={() => handleActiveIndex(7)}
+            index={5}
+            handleClick={() => handleActiveIndex(5)}
           >
             <GrUserSettings />
             User
           </SideBarAccordianHeader>
 
-          <SideBarAccordianBody activeIndex={activeIndex} index={7}>
+          <SideBarAccordianBody activeIndex={activeIndex} index={5}>
             <SideBarAccordianBodyItem link="/users" logo={true}>
               <FaUsers />
               Users

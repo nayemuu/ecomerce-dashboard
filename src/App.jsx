@@ -22,6 +22,7 @@ function App() {
 
         <Route path="/users" element={<Users />} />
         <Route path="/users2" element={<Users2 />} />
+        {/* not using /users2 route*/}
       </Routes>
     </Router>
   );
