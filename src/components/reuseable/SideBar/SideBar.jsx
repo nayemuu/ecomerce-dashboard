@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BsBoxSeamFill } from 'react-icons/bs';
 import { FaUsers } from 'react-icons/fa';
+import { GrUserSettings } from 'react-icons/gr';
 import { IoIosArrowDown } from 'react-icons/io';
 import { MdOutlinePayment } from 'react-icons/md';
 import { RiShoppingCart2Fill } from 'react-icons/ri';
@@ -8,14 +9,17 @@ import { RxDashboard } from 'react-icons/rx';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import Navigate from '../../../helper/Navigate';
-import ProductsDropDown from './DropDown/ProductsDropDown/ProductsDropDown';
-import './SideBar.css';
 import { isSectionActiveViaRoute } from '../../../utils/for-Sidebar/Sidebar';
+import ProductsDropDown from './DropDown/ProductsDropDown/ProductsDropDown';
+import UserDropDown from './DropDown/UserDropDown/UserDropDown';
+import './SideBar.css';
+import SideBarAccordianBody from './SideBarAccordianItem/SideBarAccordianBody/SideBarAccordianBody';
 
 function SideBar() {
   const { status: SideBarStatus } = useSelector((state) => state.SideBar);
   const [activeIndex, setActiveIndex] = useState(null);
-  const [activeIndexByRoute, setActiveIndexByRoute] = useState(null);
+
+  const ref = useRef(null);
 
   const location = useLocation();
   const { pathname } = location;
@@ -28,29 +32,8 @@ function SideBar() {
     }
   };
 
-  // useEffect(() => {
-  //   if (pathname === '/') {
-  //     setActiveIndexByRoute(1);
-  //     setActiveIndex(1);
-  //   }
-
-  //   if (
-  //     pathname === '/productList' ||
-  //     pathname === '/addProduct' ||
-  //     pathname === '/category' ||
-  //     pathname === '/subCategory' ||
-  //     pathname === '/location'
-  //   ) {
-  //     setActiveIndexByRoute(3);
-  //     setActiveIndex(3);
-  //   }
-  // }, []);
-
-  // console.log('isSectionActiveViaRoute = ', isSectionActiveViaRoute);
-
   useEffect(() => {
     if (pathname === '/') {
-      setActiveIndexByRoute(1);
       setActiveIndex(1);
     }
 
@@ -63,9 +46,13 @@ function SideBar() {
         '/location',
       ])
     ) {
-      setActiveIndexByRoute(3);
       setActiveIndex(3);
     }
+
+    if (isSectionActiveViaRoute(pathname, ['/users'])) {
+      setActiveIndex(7);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -78,8 +65,7 @@ function SideBar() {
         <Navigate href="/">
           <div
             className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
-              (activeIndex === 1 || activeIndexByRoute === 1) &&
-              'bg-[#1B2850] text-white'
+              activeIndex === 1 && 'bg-[#1B2850] text-white'
             }`}
             onClick={() => handleActiveIndex(1)}
           >
@@ -90,8 +76,7 @@ function SideBar() {
 
         <div
           className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
-            (activeIndex === 2 || activeIndexByRoute === 2) &&
-            'bg-[#1B2850] text-white'
+            activeIndex === 2 && 'bg-[#1B2850] text-white'
           }`}
           onClick={() => handleActiveIndex(2)}
         >
@@ -102,8 +87,7 @@ function SideBar() {
         <div>
           <div
             className={`flex items-center justify-between gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
-              (activeIndex === 3 || activeIndexByRoute === 3) &&
-              'bg-[#1B2850] text-white'
+              activeIndex === 3 && 'bg-[#1B2850] text-white'
             }`}
             onClick={() => handleActiveIndex(3)}
           >
@@ -121,17 +105,25 @@ function SideBar() {
             </div>
           </div>
 
-          {activeIndex === 3 && (
-            <div className="px-4 ">
+          {/* <div
+            className="overflow-y-hidden transition-all duration-200 ease-linear"
+            style={{
+              height: activeIndex === 3 ? ref.current?.offsetHeight || 0 : 0,
+            }}
+          >
+            <div className="px-4" ref={ref}>
               <ProductsDropDown />
             </div>
-          )}
+          </div> */}
+
+          <SideBarAccordianBody activeIndex={activeIndex} index={3}>
+            <ProductsDropDown />
+          </SideBarAccordianBody>
         </div>
 
         <div
           className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
-            (activeIndex === 4 || activeIndexByRoute === 4) &&
-            'bg-[#1B2850] text-white'
+            activeIndex === 4 && 'bg-[#1B2850] text-white'
           }`}
           onClick={() => handleActiveIndex(4)}
         >
@@ -139,26 +131,60 @@ function SideBar() {
           Payment
         </div>
 
-        <div
-          className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
-            (activeIndex === 5 || activeIndexByRoute === 5) &&
-            'bg-[#1B2850] text-white'
-          }`}
-          onClick={() => handleActiveIndex(5)}
-        >
-          <FaUsers />
-          Users
-        </div>
+        <Navigate href="/users">
+          <div
+            className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
+              activeIndex === 5 && 'bg-[#1B2850] text-white'
+            }`}
+            onClick={() => handleActiveIndex(5)}
+          >
+            <FaUsers />
+            Users
+          </div>
+        </Navigate>
 
-        <div
-          className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
-            (activeIndex === 6 || activeIndexByRoute === 6) &&
-            'bg-[#1B2850] text-white'
-          }`}
-          onClick={() => handleActiveIndex(6)}
-        >
-          <FaUsers />
-          Users
+        <Navigate href="/users2">
+          <div
+            className={`flex items-center gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
+              activeIndex === 6 && 'bg-[#1B2850] text-white'
+            }`}
+            onClick={() => handleActiveIndex(6)}
+          >
+            <FaUsers />
+            Users
+          </div>
+        </Navigate>
+
+        <div>
+          <div
+            className={`flex items-center justify-between gap-4 rounded-sm py-[11px] px-[15px] font-medium text-lg text-[#1B2850] duration-300 ease-in-out cursor-pointer hover:bg-[hsl(225,50%,41%)] hover:text-white ${
+              activeIndex === 7 && 'bg-[#1B2850] text-white'
+            }`}
+            onClick={() => handleActiveIndex(7)}
+          >
+            <div className="flex items-center gap-4">
+              <GrUserSettings />
+              User
+            </div>
+
+            <div
+              className={`duration-200 ease-linear ${
+                activeIndex === 7 ? 'rotate-180' : 'rotate-0'
+              }`}
+            >
+              <IoIosArrowDown />
+            </div>
+          </div>
+
+          {/* {activeIndex === 7 && (
+            <div className="px-4 ">
+              <UserDropDown />
+            </div>
+          )} */}
+
+          <SideBarAccordianBody activeIndex={activeIndex} index={7}>
+            <UserDropDown />
+          </SideBarAccordianBody>
         </div>
       </div>
     </div>
