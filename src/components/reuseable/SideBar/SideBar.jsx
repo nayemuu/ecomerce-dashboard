@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BsBoxSeamFill, BsPersonFillAdd } from 'react-icons/bs';
 import { FaAddressBook, FaUsers } from 'react-icons/fa';
 import { GrUserSettings } from 'react-icons/gr';
@@ -16,8 +16,6 @@ import SideBarAccordianHeader from './SideBarAccordianItem/SideBarAccordianHeade
 function SideBar() {
   const { status: SideBarStatus } = useSelector((state) => state.SideBar);
   const [activeIndex, setActiveIndex] = useState(null);
-
-  const ref = useRef(null);
 
   const location = useLocation();
   const { pathname } = location;

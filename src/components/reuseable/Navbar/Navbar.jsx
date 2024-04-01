@@ -1,11 +1,11 @@
+import { BsFullscreen } from 'react-icons/bs';
 import { FiMenu } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
 import { changeSidebarStatus } from '../../../redux/features/SideBar/SideBarSlice';
-import { BsFullscreen } from 'react-icons/bs';
 // import User from "./Navbar Mini Components/User/User";
+import { useState } from 'react';
 import UserLoggedIn from './Navbar Mini Components/User/UserLoggedIn';
 import './Navbar.css';
-import { useState } from 'react';
 
 function Navbar() {
   const [fullScreen, setFullScreen] = useState(false);

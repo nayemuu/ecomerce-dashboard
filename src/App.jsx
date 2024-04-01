@@ -6,7 +6,10 @@ import Category from './pages/Product-section-pages/Category/Category';
 import Location from './pages/Product-section-pages/Location/Location';
 import ProductList from './pages/Product-section-pages/ProductList/ProductList';
 import SubCategory from './pages/Product-section-pages/SubCategory/SubCategory';
-import Users from './pages/Users/Users';
+
+import AddUser from './pages/User-Section/AddUser/AddUser';
+import UserBiography from './pages/User-Section/UserBiography/UserBiography';
+import Users from './pages/User-Section/Users/Users';
 import Users2 from './pages/Users/Users2';
 
 function App() {
@@ -21,6 +24,8 @@ function App() {
         <Route path="/location" element={<Location />} />
 
         <Route path="/users" element={<Users />} />
+        <Route path="/add-user" element={<AddUser />} />
+        <Route path="/user-biography" element={<UserBiography />} />
         <Route path="/users2" element={<Users2 />} />
         {/* not using /users2 route*/}
       </Routes>

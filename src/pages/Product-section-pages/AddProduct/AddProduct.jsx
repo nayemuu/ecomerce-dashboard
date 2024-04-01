@@ -1,6 +1,5 @@
-import React from 'react';
-import SideBarContainer from '../../../components/reuseable/SideBar/SideBarContainer';
 import Navbar from '../../../components/reuseable/Navbar/Navbar';
+import SideBarContainer from '../../../components/reuseable/SideBar/SideBarContainer';
 
 function AddProduct() {
   return (
