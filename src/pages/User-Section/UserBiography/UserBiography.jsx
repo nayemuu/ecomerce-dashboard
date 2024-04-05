@@ -20,7 +20,7 @@ function UserBiography() {
           <div className="mt-8">
             <div className="light-card">
               <div className="flex justify-between items-center gap-5 mb-3">
-                <div className="section-title">User Biography</div>
+                <div className="section-title">User Info</div>
               </div>
 
               <div className="flex flex-col">

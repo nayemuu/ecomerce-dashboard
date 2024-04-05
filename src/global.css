@@ -20,5 +20,6 @@ body {
   border-radius: 8px;
   background: #f9f9f9;
   padding: 24px;
-  overflow-x: auto;
+  /* overflow: hidden; */
+  /* overflow-x: auto; */
 }
