@@ -100,11 +100,11 @@ function Category() {
                 </div>
               </div>
 
-              <div className="grid lg:grid-cols-12 gap-[40px] mt-5">
-                <div className="lg:col-span-7">
+              <div className="flex gap-[40px] flex-col lg:flex-row mt-5">
+                <div className="w-full basis-7/12">
                   <CategoryList />
                 </div>
-                <div className="lg:col-span-5">
+                <div className="w-full basis-5/12">
                   <AddCategoryForm />
                 </div>
               </div>
