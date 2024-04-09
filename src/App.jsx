@@ -7,6 +7,7 @@ import Location from './pages/Product-section-pages/Location/Location';
 import ProductList from './pages/Product-section-pages/ProductList/ProductList';
 import SubCategory from './pages/Product-section-pages/SubCategory/SubCategory';
 
+import Test from './pages/Test/Test';
 import AddUser from './pages/User-Section/AddUser/AddUser';
 import UserBiography from './pages/User-Section/UserBiography/UserBiography';
 import Users from './pages/User-Section/Users/Users';
@@ -27,6 +28,7 @@ function App() {
         <Route path="/add-user" element={<AddUser />} />
         <Route path="/user-biography" element={<UserBiography />} />
         <Route path="/users2" element={<Users2 />} />
+        <Route path="/test" element={<Test />} />
         {/* not using /users2 route*/}
       </Routes>
     </Router>

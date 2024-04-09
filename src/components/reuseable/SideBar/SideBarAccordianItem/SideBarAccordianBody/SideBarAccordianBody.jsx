@@ -1,11 +1,13 @@
 import { useRef } from 'react';
 
-function SideBarAccordianBody({ activeIndex, index, children }) {
+function SideBarAccordianBody({ activeIndex, index, children, transition }) {
   const ref = useRef(null);
 
   return (
     <div
-      className={`overflow-y-hidden transition-all duration-200 ease-linear`}
+      className={`overflow-y-hidden ease-linear ${
+        transition ? 'transition-all duration-200' : ''
+      }`}
       style={{
         height: activeIndex === index ? ref.current?.offsetHeight || 0 : 0,
       }}

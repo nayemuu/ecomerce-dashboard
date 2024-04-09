@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   status: true,
 };
 
 const SideBarSlice = createSlice({
-  name: "SideBar",
+  name: 'SideBar',
   initialState,
   reducers: {
     changeSidebarStatus: (state, action) => {

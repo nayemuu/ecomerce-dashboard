@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import { BsBoxSeamFill, BsPersonFillAdd } from 'react-icons/bs';
 import { FaAddressBook, FaUsers } from 'react-icons/fa';
 import { GrUserSettings } from 'react-icons/gr';
+import { IoCloseOutline } from 'react-icons/io5';
 import { MdOutlinePayment } from 'react-icons/md';
 import { RiShoppingCart2Fill } from 'react-icons/ri';
 import { RxDashboard } from 'react-icons/rx';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { changeSidebarStatus } from '../../../redux/features/SideBar/SideBarSlice';
 import { isSectionActiveViaRoute } from '../../../utils/for-Sidebar/Sidebar';
 import './SideBar.css';
 import SideBarAccordianBody from './SideBarAccordianItem/SideBarAccordianBody/SideBarAccordianBody';
@@ -16,14 +18,18 @@ import SideBarAccordianHeader from './SideBarAccordianItem/SideBarAccordianHeade
 function SideBar() {
   const { status: SideBarStatus } = useSelector((state) => state.SideBar);
   const [activeIndex, setActiveIndex] = useState(null);
+  const [transition, setTransition] = useState(false);
+  const dispatch = useDispatch();
 
   const location = useLocation();
   const { pathname } = location;
 
   const handleActiveIndex = (index) => {
     if (!activeIndex || activeIndex !== index) {
+      setTransition(true);
       setActiveIndex(index);
     } else {
+      setTransition(true);
       setActiveIndex(null);
     }
   };
@@ -57,6 +63,11 @@ function SideBar() {
         SideBarStatus ? 'translate-x-0' : '-translate-x-full'
       } sidebar-container transition-all duration-200 ease-linear`}
     >
+      <div className="flex justify-end text-3xl hover:text-red-500 cursor-pointer md:hidden">
+        <div onClick={() => dispatch(changeSidebarStatus())}>
+          <IoCloseOutline />
+        </div>
+      </div>
       <div className="mt-5 flex flex-col gap-[1px]">
         <div>
           <SideBarAccordianHeader
@@ -65,6 +76,7 @@ function SideBar() {
             handleClick={() => handleActiveIndex(1)}
             sidebarBody={false}
             link="/"
+            transition={transition}
           >
             <RxDashboard />
             Dashboard
@@ -94,7 +106,11 @@ function SideBar() {
             Products
           </SideBarAccordianHeader>
 
-          <SideBarAccordianBody activeIndex={activeIndex} index={3}>
+          <SideBarAccordianBody
+            activeIndex={activeIndex}
+            index={3}
+            transition={transition}
+          >
             <SideBarAccordianBodyItem link="/productList" logo={false}>
               Product List
             </SideBarAccordianBodyItem>
@@ -140,7 +156,11 @@ function SideBar() {
             User
           </SideBarAccordianHeader>
 
-          <SideBarAccordianBody activeIndex={activeIndex} index={5}>
+          <SideBarAccordianBody
+            activeIndex={activeIndex}
+            index={5}
+            transition={transition}
+          >
             <SideBarAccordianBodyItem link="/users" logo={true}>
               <FaUsers />
               Users
