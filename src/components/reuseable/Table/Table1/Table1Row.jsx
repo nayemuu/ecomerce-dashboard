@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { AiOutlineDelete } from 'react-icons/ai';
-import { CiEdit } from 'react-icons/ci';
-import { PiEye } from 'react-icons/pi';
+import { AiOutlineDelete } from "react-icons/ai";
+import { CiEdit } from "react-icons/ci";
+import { PiEye } from "react-icons/pi";
 function Table1Row(props) {
   const {
     item,
@@ -24,6 +24,11 @@ function Table1Row(props) {
       setIsSelected(false);
     }
   }, [selectedIds]);
+
+  const handleAlert = (index, key) => {
+    alert(`In line no ${index + 1}, "${key}" field is Missing`);
+    return "missing";
+  };
 
   return (
     <tr className="hover:bg-[#eee]" key={index}>
@@ -51,7 +56,7 @@ function Table1Row(props) {
             className="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-600"
             key={i}
           >
-            missing
+            {handleAlert(index, targetField)}
           </td>
         )
       )}

@@ -41,7 +41,7 @@
 .custom-label-text-container {
   display: flex;
   padding: 1px;
-  background-color: #fafafa;
+  /* background-color: #fafafa; */
   border: none;
 }
 

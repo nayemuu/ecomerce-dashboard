@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import './DropdownInput.css';
-import DropdownOptions from './DropdownOptions/DropdownOptions';
+import React, { useEffect, useRef, useState } from "react";
+import "./DropdownInput.css";
+import DropdownOptions from "./DropdownOptions/DropdownOptions";
 
 function DropdownInput({
   inputType,
@@ -9,6 +9,7 @@ function DropdownInput({
   setValue,
   mandatory,
   options,
+  labelBackgroundColor,
 }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownSectionRef = useRef(null);
@@ -31,10 +32,10 @@ function DropdownInput({
 
   useEffect(() => {
     // console.log('yoo')
-    document.addEventListener('click', handleOutsideClick, { capture: true });
+    document.addEventListener("click", handleOutsideClick, { capture: true });
 
     return () => {
-      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
 
@@ -56,15 +57,23 @@ function DropdownInput({
           placeholder=" "
           value={value}
           onChange={() => {}}
+          required={mandatory}
         />
         <label htmlFor="exampleFormControlInput1" className="custom-label">
-          <div className="custom-label-text-container">
+          <div
+            className="custom-label-text-container"
+            style={{
+              backgroundColor: labelBackgroundColor
+                ? labelBackgroundColor
+                : "#fafafa",
+            }}
+          >
             {label}
             {mandatory && (
               <span
                 style={{
-                  color: '#D13F97',
-                  marginLeft: '2px',
+                  color: "#D13F97",
+                  marginLeft: "2px",
                 }}
               >
                 *
@@ -100,5 +109,9 @@ function DropdownInput({
     </div>
   );
 }
+
+DropdownInput.defaultProps = {
+  mandatory: false,
+};
 
 export default DropdownInput;

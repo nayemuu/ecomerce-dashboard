@@ -1,4 +1,4 @@
-import Table1Row from './Table1Row';
+import Table1Row from "./Table1Row";
 
 function Table1(props) {
   const {
@@ -14,13 +14,14 @@ function Table1(props) {
     handleView,
     handleEdit,
     handleDelete,
+    tablBackgroundColor,
   } = props;
 
   if (!title) {
-    return alert('title is missing');
+    return alert("title is missing");
   }
   if (!headers) {
-    return alert('headers is missing');
+    return alert("headers is missing");
   }
 
   if (totalColumnForData !== headers.length) {

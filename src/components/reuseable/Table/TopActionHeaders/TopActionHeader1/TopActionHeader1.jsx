@@ -1,15 +1,18 @@
-import { CiSearch } from 'react-icons/ci';
-import { IoFilter } from 'react-icons/io5';
-import excel from '../../../../../assets/utils/excel.png';
-import pdf from '../../../../../assets/utils/pdf.png';
-import print from '../../../../../assets/utils/print.png';
-import BlackWhiteSubmitButtonWithHFull from '../../../Buttons/Submit-Buttons/BlackWhiteSubmitButtonWithHFull/BlackWhiteSubmitButtonWithHFull';
-import InputForText from '../../../Inputs/InputForText/InputForText';
+import { CiSearch } from "react-icons/ci";
+import { IoFilter } from "react-icons/io5";
+import excel from "../../../../../assets/utils/excel.png";
+import pdf from "../../../../../assets/utils/pdf.png";
+import print from "../../../../../assets/utils/print.png";
+import BlackWhiteSubmitButtonWithHFull from "../../../Buttons/Submit-Buttons/BlackWhiteSubmitButtonWithHFull/BlackWhiteSubmitButtonWithHFull";
+import InputForText from "../../../Inputs/InputForText/InputForText";
+import "./TopActionHeader1.css";
 
 function TopActionHeader1(props) {
   const {
     searchboxStatus,
     setSearchboxStatus,
+    searchText,
+    setSearchText,
     fromDate,
     setFromDate,
     toDate,
@@ -18,27 +21,31 @@ function TopActionHeader1(props) {
     setIsFilterOpen,
     leftSideActionOptions,
     handleFilter,
+    handlePdf,
+    handleExcel,
+    handlePrint,
   } = props;
+
   return (
     <div>
       <div className="flex justify-between items-center gap-5 mb-3">
-        <div className="flex gap-2">
+        <div className="flex gap-2 basis-2/6">
           {leftSideActionOptions.pdf && (
-            <div>
-              <img src={pdf} className="w-[35px] h-[35px]" />
+            <div onClick={handlePdf} className="cursor-pointer">
+              <img src={pdf} className="w-[35px] h-[35px] aspect-square" />
             </div>
           )}
 
-          <div>
-            <img src={excel} className="w-[35px] h-[35px]" />
+          <div onClick={handleExcel} className="cursor-pointer">
+            <img src={excel} className="w-[35px] h-[35px] aspect-square" />
           </div>
 
-          <div>
-            <img src={print} className="w-[35px] h-[35px]" />
+          <div onClick={handlePrint} className="cursor-pointer">
+            <img src={print} className="w-[35px] h-[35px aspect-square" />
           </div>
         </div>
 
-        <div className="flex justify-between items-center gap-5 w-full">
+        <div className="flex justify-between items-center gap-5 basis-4/6">
           <div className="relative h-[36px] w-full flex justify-end items-center">
             <div className="h-full w-[30px] flex justify-center items-center absolute right-[3px]">
               <div
@@ -50,12 +57,14 @@ function TopActionHeader1(props) {
             </div>
 
             <input
-              type="text"
+              type="search"
               placeholder="Search..."
-              className={`rounded-full outline-none focus:border-green-500 ${
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              className={`rounded-full outline-none focus:border-green-500 table-searchbar ${
                 searchboxStatus
-                  ? 'max-w-[400px] w-full h-full pl-5 pr-[35px] border border-[#AAB8C2] duration-300'
-                  : 'max-w-[0px] h-[0px] pl-0 border-0 invisible relative right-2'
+                  ? "max-w-[400px] w-full h-full pl-5 pr-[35px] border border-[#AAB8C2] duration-300"
+                  : "max-w-[0px] h-[0px] pl-0 border-0 invisible relative right-2"
               }`}
             />
           </div>
@@ -71,7 +80,7 @@ function TopActionHeader1(props) {
 
       {isFilterOpen && (
         <div className="flex flex-wrap justify-end my-4">
-          <div className="flex flex-wrap gap-6">
+          <form className="flex flex-wrap gap-6" onSubmit={handleFilter}>
             <div className="w-[160px]">
               <InputForText
                 inputType="date"
@@ -96,12 +105,11 @@ function TopActionHeader1(props) {
               <BlackWhiteSubmitButtonWithHFull
                 isLoading={false}
                 disable={false}
-                onClick={handleFilter}
               >
                 filter
               </BlackWhiteSubmitButtonWithHFull>
             </div>
-          </div>
+          </form>
         </div>
       )}
 

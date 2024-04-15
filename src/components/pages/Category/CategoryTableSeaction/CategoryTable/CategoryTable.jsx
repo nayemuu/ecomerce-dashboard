@@ -1,13 +1,7 @@
 import { useState } from "react";
-import Table1 from "../../../components/reuseable/Table/Table1/Table1";
+import Table1 from "../../../../reuseable/Table/Table1/Table1";
 
-let data = [
-  { id: 1, category: "Baby food", location: "Foodbox", status: "pending" },
-  { id: 2, category: "Baby food", location: "Foodbox" },
-  { id: 3, category: "Baby food", location: "Foodbox" },
-];
-
-function Table1Demo() {
+function CategoryTable({ data }) {
   const [selectedIds, setSelectedIds] = useState([]);
 
   // console.log('selectedIds = ', selectedIds);
@@ -59,7 +53,7 @@ function Table1Demo() {
     <div className="p-6 bg-[#f3f6fa] rounded-sm">
       <Table1
         totalColumnForData={3}
-        title="Add Products Category"
+        title="Products Category List"
         headers={headers}
         data={data}
         fieldToShow={fieldToShow}
@@ -75,4 +69,4 @@ function Table1Demo() {
   );
 }
 
-export default Table1Demo;
+export default CategoryTable;
