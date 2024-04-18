@@ -36,13 +36,17 @@ function TopActionHeader1(props) {
             </div>
           )}
 
-          <div onClick={handleExcel} className="cursor-pointer">
-            <img src={excel} className="w-[35px] h-[35px] aspect-square" />
-          </div>
+          {leftSideActionOptions.pdf && (
+            <div onClick={handleExcel} className="cursor-pointer">
+              <img src={excel} className="w-[35px] h-[35px] aspect-square" />
+            </div>
+          )}
 
-          <div onClick={handlePrint} className="cursor-pointer">
-            <img src={print} className="w-[35px] h-[35px aspect-square" />
-          </div>
+          {leftSideActionOptions.print && (
+            <div onClick={handlePrint} className="cursor-pointer">
+              <img src={print} className="w-[35px] h-[35px aspect-square" />
+            </div>
+          )}
         </div>
 
         <div className="flex justify-between items-center gap-5 grow">

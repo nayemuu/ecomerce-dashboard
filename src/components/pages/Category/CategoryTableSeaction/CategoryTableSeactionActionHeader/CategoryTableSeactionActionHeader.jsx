@@ -1,6 +1,6 @@
-import { useState } from "react";
-import TopActionHeader1 from "../../../../reuseable/Table/TopActionHeaders/TopActionHeader1/TopActionHeader1";
-import exportExcel from "../../../../../utils/ExcelGenerator/ExcelGenerator";
+import { useState } from 'react';
+import exportExcel from '../../../../../utils/ExcelGenerator/ExcelGenerator';
+import TopActionHeader1 from '../../../../reuseable/Table/TopActionHeaders/TopActionHeader1/TopActionHeader1';
 
 function CategoryTableSeactionActionHeader(props) {
   const [searchboxStatus, setSearchboxStatus] = useState(false);
@@ -18,13 +18,13 @@ function CategoryTableSeactionActionHeader(props) {
   } = props;
 
   const leftSideActionOptions = {
-    pdf: false,
-    excel: false,
-    print: false,
+    pdf: true,
+    excel: true,
+    print: true,
   };
 
   const handlePdf = () => {
-    console.log("inside handlePdf");
+    console.log('inside handlePdf');
   };
   const handleExcel = () => {
     // console.log("inside handleExcell");
@@ -34,18 +34,18 @@ function CategoryTableSeactionActionHeader(props) {
 
     data.map((item) => {
       let obj = {};
-      obj["id"] = item.id;
-      obj["Category"] = item.category;
-      obj["Location"] = item.location;
+      obj['id'] = item.id;
+      obj['Category'] = item.category;
+      obj['Location'] = item.location;
 
       exportData.push(obj);
     });
 
-    exportExcel(exportData, "Category_List.xlsx");
+    exportExcel(exportData, 'Category_List.xlsx');
   };
 
   const handlePrint = () => {
-    console.log("inside handlePrint");
+    console.log('inside handlePrint');
   };
 
   return (
