@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import exportExcel from '../../../../../utils/ExcelGenerator/ExcelGenerator';
+import exportPdf from '../../../../../utils/PdfGenerator/PdfGenerator';
 import TopActionHeader1 from '../../../../reuseable/Table/TopActionHeaders/TopActionHeader1/TopActionHeader1';
 
 function CategoryTableSeactionActionHeader(props) {
@@ -24,7 +25,11 @@ function CategoryTableSeactionActionHeader(props) {
   };
 
   const handlePdf = () => {
-    console.log('inside handlePdf');
+    // console.log('data = ', data);
+    let head = [['Category ID', 'Category Name', 'Location']];
+
+    let fieldToShow = ['id', 'category', 'location']; // data column kyes
+    exportPdf('Category List', head, data, fieldToShow);
   };
   const handleExcel = () => {
     // console.log("inside handleExcell");

@@ -1,27 +1,27 @@
-import { useEffect, useState } from "react";
-import CategoryTableSeactionActionHeader from "./CategoryTableSeactionActionHeader/CategoryTableSeactionActionHeader";
-import CategoryTable from "./CategoryTable/CategoryTable";
-import AddCategoryForm from "../AddCategoryForm/AddCategoryForm";
+import { useEffect, useState } from 'react';
+import AddCategoryForm from '../AddCategoryForm/AddCategoryForm';
+import CategoryTable from './CategoryTable/CategoryTable';
+import CategoryTableSeactionActionHeader from './CategoryTableSeactionActionHeader/CategoryTableSeactionActionHeader';
 
 let data = [
-  { id: 1, category: "Baby food", location: "Foodbox", status: "pending" },
-  { id: 2, category: "Baby food", location: "Foodbox" },
-  { id: 3, category: "Baby food", location: "Foodbox" },
+  { id: 1, category: 'Baby food', location: 'Foodbox', status: 'pending' },
+  { id: 2, category: 'Skin Care', location: 'bodycare' },
+  { id: 3, category: 'Medicine', location: 'medicare' },
 ];
 
 function CategoryTableSeaction() {
-  const [searchText, setSearchText] = useState("");
-  const [fromDate, setFromDate] = useState("");
-  const [toDate, setToDate] = useState("");
+  const [searchText, setSearchText] = useState('');
+  const [fromDate, setFromDate] = useState('');
+  const [toDate, setToDate] = useState('');
 
   useEffect(() => {
-    console.log("searchText = ", searchText);
+    console.log('searchText = ', searchText);
   }, [searchText]);
 
   const handleFilter = (e) => {
     e.preventDefault();
-    if (!errorToastMessage) console.log("fromDate = ", fromDate);
-    console.log("toDate = ", toDate);
+    if (!errorToastMessage) console.log('fromDate = ', fromDate);
+    console.log('toDate = ', toDate);
   };
 
   return (
