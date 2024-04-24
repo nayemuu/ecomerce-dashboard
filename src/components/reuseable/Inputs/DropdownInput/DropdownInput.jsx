@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./DropdownInput.css";
-import DropdownOptions from "./DropdownOptions/DropdownOptions";
+import React, { useEffect, useRef, useState } from 'react';
+import './DropdownInput.css';
+import DropdownOptions from './DropdownOptions/DropdownOptions';
 
 function DropdownInput({
   inputType,
@@ -32,10 +32,10 @@ function DropdownInput({
 
   useEffect(() => {
     // console.log('yoo')
-    document.addEventListener("click", handleOutsideClick, { capture: true });
+    document.addEventListener('click', handleOutsideClick, { capture: true });
 
     return () => {
-      document.removeEventListener("click", handleOutsideClick);
+      document.removeEventListener('click', handleOutsideClick);
     };
   }, []);
 
@@ -65,15 +65,15 @@ function DropdownInput({
             style={{
               backgroundColor: labelBackgroundColor
                 ? labelBackgroundColor
-                : "#fafafa",
+                : '#fafafa',
             }}
           >
             {label}
             {mandatory && (
               <span
                 style={{
-                  color: "#D13F97",
-                  marginLeft: "2px",
+                  color: '#D13F97',
+                  marginLeft: '2px',
                 }}
               >
                 *

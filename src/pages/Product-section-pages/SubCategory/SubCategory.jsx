@@ -1,16 +1,13 @@
-import SideBarContainer from '../../../components/reuseable/SideBar/SideBarContainer';
+import SubCategoryTableSeaction from '../../../components/pages/SubCategory/SubCategoryTableSeaction/SubCategoryTableSeaction';
 import Navbar from '../../../components/reuseable/Navbar/Navbar';
+import SideBarContainer from '../../../components/reuseable/SideBar/SideBarContainer';
 
 function SubCategory() {
   return (
     <div>
       <SideBarContainer>
         <Navbar />
-        <div className="container">
-          <h1 className="text-3xl font-bold underline text-green-600">
-            SubCategory
-          </h1>
-        </div>
+        <SubCategoryTableSeaction />
       </SideBarContainer>
     </div>
   );

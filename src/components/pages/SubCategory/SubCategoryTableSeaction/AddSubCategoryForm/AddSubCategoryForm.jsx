@@ -1,29 +1,29 @@
-import { useState } from "react";
-import BlackWhiteSubmitButton from "../../../reuseable/Buttons/Submit-Buttons/BlackWhiteSubmitButton/BlackWhiteSubmitButton";
-import DropdownInput from "../../../reuseable/Inputs/DropdownInput/DropdownInput";
-import InputForText from "../../../reuseable/Inputs/InputForText/InputForText";
+import { useState } from 'react';
+import BlackWhiteSubmitButton from '../../../../reuseable/Buttons/Submit-Buttons/BlackWhiteSubmitButton/BlackWhiteSubmitButton';
+import DropdownInput from '../../../../reuseable/Inputs/DropdownInput/DropdownInput';
+import InputForText from '../../../../reuseable/Inputs/InputForText/InputForText';
 
-let locations = ["Medicines", "Food Box", "Body Care", "Private Box"];
+let locations = ['Medicines', 'Food Box', 'Body Care', 'Private Box'];
 
-function AddCategoryForm() {
-  const [category, setCategory] = useState("");
-  const [location, setLocation] = useState("");
-  const [error, setError] = useState("");
+function AddSubCategoryForm() {
+  const [category, setCategory] = useState('');
+  const [location, setLocation] = useState('');
+  const [error, setError] = useState('');
   const [isHovered, setIsHovered] = useState(false);
 
   const resetForm = () => {
-    setCategory("");
-    setLocation("");
+    setCategory('');
+    setLocation('');
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    console.log("category = ", category);
-    console.log("location = ", location);
+    console.log('category = ', category);
+    console.log('location = ', location);
 
     //resetForm();
-    setFormValidation("");
+    setFormValidation('');
   };
 
   return (
@@ -73,4 +73,4 @@ function AddCategoryForm() {
   );
 }
 
-export default AddCategoryForm;
+export default AddSubCategoryForm;

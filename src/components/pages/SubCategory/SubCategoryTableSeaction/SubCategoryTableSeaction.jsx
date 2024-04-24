@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
-import AddCategoryForm from './AddCategoryForm/AddCategoryForm';
-import CategoryTable from './CategoryTable/CategoryTable';
-import CategoryTableSeactionActionHeader from './CategoryTableSeactionActionHeader/CategoryTableSeactionActionHeader';
-
+import AddSubCategoryForm from './AddSubCategoryForm/AddSubCategoryForm';
+import SubCategoryTable from './SubCategoryTable/SubCategoryTable';
+import SubCategoryTableSeactionActionHeader from './SubCategoryTableSeactionActionHeader/SubCategoryTableSeactionActionHeader';
 let data = [
   { id: 1, category: 'Baby food', location: 'Foodbox', status: 'pending' },
   { id: 2, category: 'Skin Care', location: 'bodycare' },
   { id: 3, category: 'Medicine', location: 'medicare' },
 ];
 
-function CategoryTableSeaction() {
+function SubCategoryTableSeaction() {
   const [searchText, setSearchText] = useState('');
   const [fromDate, setFromDate] = useState('');
   const [toDate, setToDate] = useState('');
@@ -29,7 +28,7 @@ function CategoryTableSeaction() {
       <div className="mt-10 text-xl font-bold">Category List</div>
       <div className="mt-5">
         <div className="light-card">
-          <CategoryTableSeactionActionHeader
+          <SubCategoryTableSeactionActionHeader
             searchText={searchText}
             setSearchText={setSearchText}
             fromDate={fromDate}
@@ -42,10 +41,10 @@ function CategoryTableSeaction() {
 
           <div className="flex gap-[40px] flex-col lg:flex-row mt-5">
             <div className="w-full basis-7/12">
-              <CategoryTable data={data} />
+              <SubCategoryTable data={data} />
             </div>
             <div className="w-full basis-5/12">
-              <AddCategoryForm />
+              <AddSubCategoryForm />
             </div>
           </div>
         </div>
@@ -54,4 +53,4 @@ function CategoryTableSeaction() {
   );
 }
 
-export default CategoryTableSeaction;
+export default SubCategoryTableSeaction;

@@ -1,4 +1,4 @@
-import "./InputForText.css";
+import './InputForText.css';
 
 function InputForText({
   inputType,
@@ -25,15 +25,15 @@ function InputForText({
           style={{
             backgroundColor: labelBackgroundColor
               ? labelBackgroundColor
-              : "#fafafa",
+              : '#fafafa',
           }}
         >
           {label}
           {mandatory && (
             <span
               style={{
-                color: "#D13F97",
-                marginLeft: "2px",
+                color: '#D13F97',
+                marginLeft: '2px',
               }}
             >
               *

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Table1 from '../../../../reuseable/Table/Table1/Table1';
 
-function CategoryTable({ data }) {
+function SubCategoryTable({ data }) {
   const [selectedIds, setSelectedIds] = useState([]);
 
   // console.log('selectedIds = ', selectedIds);
@@ -69,4 +69,4 @@ function CategoryTable({ data }) {
   );
 }
 
-export default CategoryTable;
+export default SubCategoryTable;
