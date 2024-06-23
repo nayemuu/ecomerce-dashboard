@@ -13,6 +13,13 @@ export default {
       xl: '1200px',
       xxl: '1400px',
     },
+
+    extend: {
+      colors: {
+        primary: '#43BFC7',
+        'primary-deep': '#17939b',
+      },
+    },
   },
 
   plugins: [

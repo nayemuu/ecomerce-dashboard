@@ -7,6 +7,7 @@ import Location from './pages/Product-section-pages/Location/Location';
 import ProductList from './pages/Product-section-pages/ProductList/ProductList';
 import SubCategory from './pages/Product-section-pages/SubCategory/SubCategory';
 
+import Login from './pages/Login/Login';
 import Test from './pages/Test/Test';
 import AddUser from './pages/User-Section/AddUser/AddUser';
 import UserBiography from './pages/User-Section/UserBiography/UserBiography';
@@ -18,6 +19,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/category" element={<Category />} />
         <Route path="/productList" element={<ProductList />} />
         <Route path="/addProduct" element={<AddProduct />} />

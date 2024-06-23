@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree&display=swap');
+:root {
+  --primary-color: #43bfc7;
+  --secondary-color: #13264d;
+  --background-color: #fafbfe;
+  --text-color: #637381;
+  --white-color: #fff;
+  --black-color: #000;
+  --primary-font: 'Figtree', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
 body {
-  background-color: #f2f3f8;
+  font-family: var(--primary-font) !important;
+  font-size: 100% !important;
+  font-weight: 400 !important;
+  overflow: hidden !important;
+  background-color: var(--background-color) !important;
 }
